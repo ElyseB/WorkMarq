@@ -9,7 +9,7 @@ CREATE TABLE EMPLOYEE(
     middleInit VARCHAR2 (5),
     phone VARCHAR2 (15),
     username VARCHAR2 (50),
-    password VARCHAR2 (50)
+    pass VARCHAR2 (50)
     
 );
 
