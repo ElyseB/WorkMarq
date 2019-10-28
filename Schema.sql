@@ -9,25 +9,27 @@ CREATE TABLE EMPLOYEE(
     middleInit VARCHAR2 (5),
     phone VARCHAR2 (15),
     username VARCHAR2 (50),
-    pass VARCHAR2 (50)
-    
+    pass VARCHAR2 (50),
+    supervisorNum INT
 );
 
 CREATE TABLE BUILDING(
     bName VARCHAR2 (25) PRIMARY KEY,
     bAbbrev VARCHAR2 (5) UNIQUE NOT NULL,
     bAddress VARCHAR2 (250) NOT NULL,
-    bPhone VARCHAR2(15) NOT NULL
+    bPhone VARCHAR2(15) NOT NULL,
+    maxRooms INT NOT NULL
 );
 
 
 CREATE TABLE RESERVATION(
-    reservNum INT PRIMARY KEY,
+    reservNum VARCHAR2 (15) PRIMARY KEY,
     companyName VARCHAR2(250), 
     contactName VARCHAR2 (250) NOT NULL,
     contactPhone VARCHAR2 (15) NOT NULL,
     occupies VARCHAR2(5),
     reservStart DATE,
     reservEnd DATE,
+    roomsNeeded INT,
     CONSTRAINT FK_Occupies FOREIGN KEY (Occupies) REFERENCES BUILDING (BAbbrev) ON DELETE CASCADE
 );
