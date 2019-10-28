@@ -10,3 +10,9 @@ INSERT ALL
     INTO BUILDING (bName, bAbbrev, bAddress, bPhone) VALUES ('Eckstein Tower', 'ET', '721 N. 17th St', '414-288-1725')
     INTO BUILDING (bName, bAbbrev, bAddress, bPhone) VALUES ('Wells Hall', 'WH', '721 N. 17th St', '414-288-0792')
 SELECT * FROM dual;
+
+INSERT ALL
+    INTO EMPLOYEE (empNum, firstName, lastName, middleInit, phone, username, pass) VALUES (123456789, 'John', 'Smith', 'B', '414-288-1234', 'JSmith', 'apple486')
+    INTO EMPLOYEE (empNum, firstName, lastName, middleInit, phone, username, pass) VALUES (234567891, 'Sarah', 'Jane', 'D', '414-288-4567', 'SJane', 'pear239')
+    INTO EMPLOYEE (empNum, firstName, lastName, middleInit, phone, username, pass) VALUES (345678912, 'Mathew', 'Tennent', 'A', '414-288-5678', 'MTennent', 'pumpkin123')
+SELECT * FROM dual;
