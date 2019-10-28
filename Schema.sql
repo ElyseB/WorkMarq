@@ -3,28 +3,31 @@ DROP TABLE BUILDING CASCADE CONSTRAINTS;
 DROP TABLE RESERVATION CASCADE CONSTRAINTS;
 
 CREATE TABLE EMPLOYEE(
-    EmpNum INT PRIMARY KEY,
-    FirstName VARCHAR2 (25) NOT NULL,
-    LastName VARCHAR2 (25) NOT NULL,
-    MiddleInit VARCHAR2 (5),
-    Phone VARCHAR2 (15)
+    empNum INT PRIMARY KEY,
+    firstName VARCHAR2 (25) NOT NULL,
+    lastName VARCHAR2 (25) NOT NULL,
+    middleInit VARCHAR2 (5),
+    phone VARCHAR2 (15),
+    username VARCHAR2 (50),
+    password VARCHAR2 (50)
+    
 );
 
 CREATE TABLE BUILDING(
-    BName VARCHAR2 (25) PRIMARY KEY,
-    BAbbrev VARCHAR2 (5) UNIQUE NOT NULL,
-    BAddress VARCHAR2 (250) NOT NULL,
-    BPhone VARCHAR2(15) NOT NULL
+    bName VARCHAR2 (25) PRIMARY KEY,
+    bAbbrev VARCHAR2 (5) UNIQUE NOT NULL,
+    bAddress VARCHAR2 (250) NOT NULL,
+    bPhone VARCHAR2(15) NOT NULL
 );
 
 
 CREATE TABLE RESERVATION(
-    ReservNum INT PRIMARY KEY,
-    CompanyName VARCHAR2(250), 
-    ContactName VARCHAR2 (250) NOT NULL,
-    ContactPhone VARCHAR2 (15) NOT NULL,
-    Occupies VARCHAR2(5),
-    ReservStart DATE,
-    ReservEnd DATE,
+    reservNum INT PRIMARY KEY,
+    companyName VARCHAR2(250), 
+    contactName VARCHAR2 (250) NOT NULL,
+    contactPhone VARCHAR2 (15) NOT NULL,
+    occupies VARCHAR2(5),
+    reservStart DATE,
+    reservEnd DATE,
     CONSTRAINT FK_Occupies FOREIGN KEY (Occupies) REFERENCES BUILDING (BAbbrev) ON DELETE CASCADE
 );
