@@ -23,7 +23,7 @@ CREATE TABLE BUILDING(
 
 
 CREATE TABLE RESERVATION(
-    reservNum VARCHAR2 (15) PRIMARY KEY,
+    reservNum INT PRIMARY KEY,
     companyName VARCHAR2(250), 
     contactName VARCHAR2 (250) NOT NULL,
     contactPhone VARCHAR2 (15) NOT NULL,
