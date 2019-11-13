@@ -27,7 +27,7 @@ CREATE TABLE RESERVATION(
     companyName VARCHAR2(250), 
     contactName VARCHAR2 (250) NOT NULL,
     contactPhone VARCHAR2 (15) NOT NULL,
-    occupies VARCHAR2(5),
+    occupies INT,
     reservStart DATE,
     reservEnd DATE,
     roomsNeeded INT,
