@@ -1,15 +1,16 @@
-  
 package com.example.demo.domain;
+
+import java.sql.Date;
 
 public class Reservation {
 	private String reservNum;
 	private String orgName;
 	private String contactName;
-    private String contactPhone;
-    private String occupies;
-    private String reservStart;
-    private String reservEnd;
-    private String roomsNeeded;
+	private String contactPhone;
+	private String occupies;
+	private Date reservStart;
+	private Date reservEnd;
+	private int roomsNeeded;
 	
 	/**
 	 * @param reservNum
@@ -22,73 +23,73 @@ public class Reservation {
      * @param roomsNeeded
 	 */
 	
-	public Reservation(String reservNum, String orgName, String contactName, String contactPhone, String occupies, String reservStart, String reservEnd, String roomsNeeded) {
+	public Reservation(String reservNum, String orgName, String contactName, String contactPhone, String occupies,
+			Date reservStart, Date reservEnd, int roomsNeeded) {
 		super();
 		this.reservNum = reservNum;
 		this.orgName = orgName;
 		this.contactName = contactName;
-        this.contactPhone = contactPhone;
-        this.occupies = occupies;
-        this.reservStart = reservStart;
-        this.reservEnd = reservEnd;
-        this.roomsNeeded = roomsNeeded;
+		this.contactPhone = contactPhone;
+		this.occupies = occupies;
+		this.reservStart = reservStart;
+		this.reservEnd = reservEnd;
+		this.roomsNeeded = roomsNeeded;
 	}
-	public () {
+	public Reservation() {
 		// TODO Auto-generated constructor stub
 	}
-	public String getreservNum() {
+	public String getReservNum() {
 		return reservNum;
-	}	
-	public void setreservNum(String reservNum) {
+	}
+	public void setReservNum(String reservNum) {
 		this.reservNum = reservNum;
 	}
-	public String getorgName() {
+	public String getOrgName() {
 		return orgName;
 	}
-	public void setorgName(String orgName) {
+	public void setOrgName(String orgName) {
 		this.orgName = orgName;
 	}
-	public String getcontactName() {
+	public String getContactName() {
 		return contactName;
 	}
-	public void setcontactName(String contactName) {
+	public void setContactName(String contactName) {
 		this.contactName = contactName;
 	}
-	public String getcontactPhone() {
+	public String getContactPhone() {
 		return contactPhone;
 	}
-	public void setcontactPhone(String contactPhone) {
+	public void setContactPhone(String contactPhone) {
 		this.contactPhone = contactPhone;
-    }
-    public String getoccupies() {
+	}
+	public String getOccupies() {
 		return occupies;
 	}
-	public void setoccupies(String occupies) {
+	public void setOccupies(String occupies) {
 		this.occupies = occupies;
-    }
-    public String getreserveStart() {
-		return reserveStart;
 	}
-	public void setreserveStart(String reserveStart) {
-		this.reserveStart = reserveStart;
-    }
-    public String getreserveEnd() {
-		return reserveEnd;
+	public Date getReservStart() {
+		return reservStart;
 	}
-	public void setreserveEnd(String reserveEnd) {
-		this.reserveEnd = reserveEnd;
-    }
-    public String getroomsNeeded() {
+	public void setReservStart(Date reservStart) {
+		this.reservStart = reservStart;
+	}
+	public Date getReservEnd() {
+		return reservEnd;
+	}
+	public void setReservEnd(Date reservEnd) {
+		this.reservEnd = reservEnd;
+	}
+	public int getRoomsNeeded() {
 		return roomsNeeded;
 	}
-	public void setroomsNeeded(String roomsNeeded) {
+	public void setRoomsNeeded(int roomsNeeded) {
 		this.roomsNeeded = roomsNeeded;
-    }
-    
-
+	}
 	@Override
 	public String toString() {
-		return "Reservation [reservNum=" + reservNum + ", orgName=" + orgName + ", contactName=" + contactName + ", contactPhone=" + contactPhone
-				+ ",occupies=" + occupies + ", reservStart=" + reservStart + ", reservEnd=" + reservEnd + ", roomsNeeded=" + roomsNeeded +"]";
+		return "Reservation [reservNum=" + reservNum + ", orgName=" + orgName + ", contactName=" + contactName
+				+ ", contactPhone=" + contactPhone + ", occupies=" + occupies + ", reservStart=" + reservStart
+				+ ", reservEnd=" + reservEnd + ", roomsNeeded=" + roomsNeeded + "]";
 	}
 }
