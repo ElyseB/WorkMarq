@@ -39,7 +39,8 @@ CREATE TABLE TIMEOFF(
     empNum INT PRIMARY KEY,
     startDate DATE,
     endDate DATE,
-    totalHours INT
-    --typeHoursUsed VARCHAR2(50), 
-    --CONSTRAINT check_typeHoursUsed CHECK (typeHoursUsed IN 'AL', 'FLOATING HOLIDAY', 'PLANNED MEDICAL', 'BANKED HOLIDAY')
+    totalHours INT,
+    typeHoursUsed VARCHAR2(100), 
+    CONSTRAINT check_typeHoursUsed 
+        CHECK (typeHoursUsed IN ('AL', 'FLOATING HOLIDAY', 'PLANNED MEDICAL', 'BANKED HOLIDAY'))
 );
