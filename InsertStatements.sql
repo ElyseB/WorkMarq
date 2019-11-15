@@ -22,7 +22,7 @@ INSERT ALL
 SELECT * FROM dual;
 
 INSERT ALL 
-    INTO RESERVATION(reservNum, companyName, contactName, contactPhone, occupies, reservStart, reservEnd, roomsNeeded) VALUES (105, 'TWC', 'Brian Moss', '414-555-1234', 'OD', '05-MAY-2020', '07-MAY-2020', 5)
-    INTO RESERVATION(reservNum, companyName, contactName, contactPhone, occupies, reservStart, reservEnd, roomsNeeded) VALUES (106, 'Six Flags', 'Trisana Chandler', '414-222-2345', 'CT', '15-MAY-2020', '20-MAY-2020', 15)
-    INTO RESERVATION(reservNum, companyName, contactName, contactPhone, occupies, reservStart, reservEnd, roomsNeeded) VALUES (107, 'Woodmans', 'Daja Kisubo', '414-777-3456', 'CO', '05-Jun-2020', '10-JUN-2020', 7)
+    INTO RESERVATION(reservNum, orgName, contactName, contactPhone, occupies, reservStart, reservEnd, roomsNeeded) VALUES (105, 'TWC', 'Brian Moss', '414-555-1234', 'OD', '05-MAY-2020', '07-MAY-2020', 5)
+    INTO RESERVATION(reservNum, orgName, contactName, contactPhone, occupies, reservStart, reservEnd, roomsNeeded) VALUES (106, 'Six Flags', 'Trisana Chandler', '414-222-2345', 'CT', '15-MAY-2020', '20-MAY-2020', 15)
+    INTO RESERVATION(reservNum, orgName, contactName, contactPhone, occupies, reservStart, reservEnd, roomsNeeded) VALUES (107, 'Woodmans', 'Daja Kisubo', '414-777-3456', 'CO', '05-Jun-2020', '10-JUN-2020', 7)
 SELECT * FROM dual;
