@@ -32,4 +32,7 @@ public class ReservationDAO {
 	public Reservation getReservation(Reservation reservation) {
 		return reservationMapper.getReservation(reservation);
 	}
+	public void updateReservation(Reservation reservation) {
+		reservationMapper.updateReservation(reservation);
+	}
 }
