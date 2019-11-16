@@ -41,7 +41,7 @@ public class Reservation {
 	public String getReservNum() {
 		return reservNum;
 	}
-	public void setReservNum(String reservNum) {
+	public void setReservNum(int reservNum) {
 		this.reservNum = reservNum;
 	}
 	public String getOrgName() {
