@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee List</title>
+    <link rel="stylesheet" type="text/css" href="css/example.css" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color:rgba(255,215,0,0.5);">
+    
+    <h1>Employees</h1>
+    <table class = "prettytable">
+    
+    <tr>
+    <th>Employee Number</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Middle </th>
+    <th>Phone</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Supervisor</th>
+    </tr>
+    
+     <tr th:each="employee: ${employeeList}">
+        <td th:text="${employee.empNum}" />
+        <td th:text="${employee.firstName}" />
+        <td th:text="${employee.lastName}" />
+        <td th:text="${employee.middleInit}" />
+        <td th:text="${employee.phone}" />
+        <td th:text="${employee.username}" />
+        <td th:text="${employee.pass}" />
+        <td th:text="${employee.supervisorNum}" />
+        <td>
+        <a th:href="@{'/editEmployee/' + ${employee.empNum}}">edit</a>
+        </td>
+    </tr>
+    
+    </table> 
+    
+</body>
+</html>
