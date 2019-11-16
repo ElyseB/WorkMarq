@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Building List</title>
+    <link rel="stylesheet" type="text/css" href="css/example.css" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: rgba(255, 215, 0, 0.5);">
+    
+    <h1>Buildings</h1>
+    <table class = "prettytable">
+    
+    <tr>
+    <th>Building Name</th>
+    <th>Building Abbreviation </th>
+    <th>Building Address</th>
+    <th>Building Phone Number</th>
+    <th>Building Max Capacity</th>
+    <th></th>
+    </tr>
+    
+     <tr th:each="building: ${buildingList}">
+        <td th:text="${building.bName}" />
+        <td th:text="${building.bAbbrev}" />
+        <td th:text="${building.bAddress}" />
+        <td th:text="${building.bPhone}" />
+        <td th:text="${building.maxRooms}" />
+        <td>
+        <a th:href="@{'/editBuilding/' + ${building.bName}}">edit</a>
+        </td>
+    </tr>
+    
+    </table> 
+    
+</body>
+</html>
