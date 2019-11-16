@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reservation List</title>
+    <link rel="stylesheet" type="text/css" href="css/example.css" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: rgba(255, 215, 0, 0.5);">
+    <h1>Reservations</h1>
+    <table class = "prettytable">
+    
+    <tr>
+    <th>Reservation Number</th>
+    <th>Organization Name </th>
+    <th>Contact Name</th>
+    <th>Contact Phone Number</th>
+    <th>Building Occupied</th>
+    <th>Reservation Start Date</th>
+    <th>Reservation End Date</th>
+    <th>Number of Rooms</th>
+    <th>Building Max Capacity</th>
+    <th></th>
+    </tr>
+    
+     <tr th:each="reservation: ${reservationList}">
+        <td th:text="${reservation.reservNum}" />
+        <td th:text="${reservation.orgName}" />
+        <td th:text="${reservation.contactName}" />
+        <td th:text="${reservation.contactPhone}" />
+        <td th:text="${reservation.occupies}" />
+        <td th:text="${reservation.reservStart}" />
+        <td th:text="${reservation.reservEnd}" />
+        <td th:text="${reservation.roomsNeeded}" />
+        <td th:text="${building.maxRooms}" />
+        <td>
+        <a th:href="@{'/editReservation/' + ${reservation.reservNum}}">edit</a>
+        </td>
+    </tr>
+    
+    </table> 
+
+</body>
+</html>
