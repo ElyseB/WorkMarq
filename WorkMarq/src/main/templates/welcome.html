@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>MU Cal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: rgba(255, 215, 0, 0.5);">
+	<h1 style="color: rgb(25, 25, 112)">Welcome to WorkMarq</h1>
+	<p th:text="${message}"/>
+	<a th:href="@{'/empSchedule/' + ${employee.empNum}}">Your Schedule</a>
+	<a th:href="@{'/yearSchedule/' + ${employee.empNum}}">Full Schedule</a>
+	<a th:href="@{'/openBuildings/' + ${employee.empNum}}">Building Openings</a>
+	<a th:href="@{'/training/' + ${employee.empNum}}">Training Manual</a>
+	<a th:href="@{'/hallMaps/' + ${employee.empNum}}">Hall Maps</a>
+</body>
+</html>
