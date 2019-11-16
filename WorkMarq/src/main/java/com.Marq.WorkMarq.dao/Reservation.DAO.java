@@ -1,0 +1,39 @@
+package com.Marq.WorkMarq.dao;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.Marq.WorkMarq.domain.Building;
+import com.Marq.WorkMarq.domain.Reservation;
+import com.Marq.WorkMarq.domain.ReservationMapper;
+
+@Component
+public class ReservationDAO {
+
+	@Autowired
+	ReservationMapper reservationMapper;
+	
+	public ReservationDAO() {
+		
+	}
+	public List<Reservation> getReservationList(){
+		List<Reservation> reservationList = new ArrayList<Reservation>();
+		reservationList = reservationMapper.getReservationList();
+		return reservationList;
+	}
+	public void insertReservation(Reservation reservation) {
+		reservationMapper.insertReservation(reservation);
+	}
+	public Reservation getReservation(Reservation reservation) {
+		return reservationMapper.getReservation(reservation);
+	}
+	public void updateReservation(Reservation reservation) {
+		reservationMapper.updateReservation(reservation);
+	}
+}
