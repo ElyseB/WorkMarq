@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>WorkMarq</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: rgba(255, 215, 0, 0.5);">
+	<h1 style="color: rgb(25, 25, 112)">Welcome to WorkMarq</h1>
+	<p th:text="${message}"/>
+	<a th:href="@{'/fullSchedule/' + ${employee.empNum}}">Full Schedule</a>
+	<a th:href="@{'/newEmp/' + ${employee.empNum}}">Add Employee</a>
+	<a th:href="@{'/editEmp/' + ${employee.empNum}}">Edit Employee</a>
+	<a th:href="@{'/removeEmp/' + ${employee.empNum}}">Remove Employee</a>
+	<a th:href="@{'/removeEmp/' + ${employee.empNum}}">Add Reservation</a>
+	<a th:href="@{'/removeEmp/' + ${employee.empNum}}">Edit Reservation</a>
+	<a th:href="@{'/removeEmp/' + ${employee.empNum}}">Remove Reservation</a>
+
+</body>
+</html>
