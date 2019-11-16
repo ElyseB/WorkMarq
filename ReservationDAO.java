@@ -21,7 +21,7 @@ public class ReservationDAO {
 	public ReservationDAO() {
 		
 	}
-	public List<Reservation> getReservatuibList(){
+	public List<Reservation> getReservationList(){
 		List<Reservation> reservationList = new ArrayList<Reservation>();
 		reservationList = reservationMapper.getReservationList();
 		return reservationList;
