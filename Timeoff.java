@@ -8,6 +8,7 @@ public class Timeoff {
 	private Date endDate;
 	private int totalHours;
 	private String typeHoursUsed;
+	private Date submitted;
 	
 	/**
 	 * @param empNum
@@ -15,15 +16,17 @@ public class Timeoff {
 	 * @param endDate
 	 * @param totalHours
      * @param typeHoursUsed
+     * @param submitted
 	 */
 	
-    public Timeoff(String empNum, Date startDate, Date endDate, int totalHours, String typeHoursUsed,) {
+    public Timeoff(String empNum, Date startDate, Date endDate, int totalHours, String typeHoursUsed, Date submitted) {
 		super();
 		this.empNum = empNum;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.totalHours = totalHours;
 		this.typeHoursUsed = typeHoursUsed;
+	    	this.submitted = submitted;
 	}
 	public Timeoff() {
 		// TODO Auto-generated constructor stub
@@ -58,9 +61,16 @@ public class Timeoff {
 	public void setTypeHoursUsed(int typeHoursUsed) {
 		this.typeHoursUsed = typeHoursUsed;
 	}
+		}
+	public String getSubmitted() {
+		return submitted;
+	}
+	public void setSubmitted(Date submitted) {
+		this.submitted = submitted;
+	}
 	@Override
 	public String toString() {
 		return "Timeoff [empNum=" + empNum + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", totalHours=" + totalHours + ", typeHoursUsed=" + typeHoursUsed + "]";
+				+ ", totalHours=" + totalHours + ", typeHoursUsed=" + typeHoursUsed + " submitted=" + submitted + "]";
 	}
 }
