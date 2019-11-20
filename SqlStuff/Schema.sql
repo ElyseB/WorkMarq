@@ -22,7 +22,6 @@ CREATE TABLE BUILDING(
     maxRooms INT NOT NULL
 );
 
-
 CREATE TABLE RESERVATION(
     reservNum INT PRIMARY KEY,
     orgName VARCHAR2(250), 
@@ -36,12 +35,13 @@ CREATE TABLE RESERVATION(
 );
 
 CREATE TABLE TIMEOFF(
-    empNum INT PRIMARY KEY,
+    empNum INT,
     startDate DATE,
     endDate DATE,
     totalHours INT,
-    typeHoursUsed VARCHAR2(100), 
+    typeHoursUsed VARCHAR2(100),
+    submitted DATE,
     CONSTRAINT check_typeHoursUsed 
         CHECK (typeHoursUsed IN ('AL', 'FLOATING HOLIDAY', 'PLANNED MEDICAL', 'BANKED HOLIDAY')),
-    CONSTRAINT FK_empNum FOREIGN KEY (empNum) REFERENCES EMPLOYEE (empNum) ON DELETE CASCADE
+    CONSTRAINT PK_TIMEOFF PRIMARY KEY (empNum, startDate, endDate)
 );
