@@ -40,8 +40,8 @@ CREATE TABLE TIMEOFF(
     endDate DATE,
     totalHours INT,
     typeHoursUsed VARCHAR2(100),
-    submitted DATE,
     CONSTRAINT check_typeHoursUsed 
         CHECK (typeHoursUsed IN ('AL', 'FLOATING HOLIDAY', 'PLANNED MEDICAL', 'BANKED HOLIDAY')),
-    CONSTRAINT PK_TIMEOFF PRIMARY KEY (empNum, startDate, endDate)
+    CONSTRAINT FK_empNum FOREIGN KEY (empNum) REFERENCES EMPLOYEE(empNum), 
+    CONSTRAINT PK_TIMEOFF PRIMARY KEY (empNum, startDate, endDate) ON DELETE CASCADE
 );
