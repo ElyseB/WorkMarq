@@ -18,7 +18,7 @@ public interface EmployeeMapper {
 	@Update("update employee set firstName = #{firstName}, lastName = #{lastName}, middleInit = #{middleInit}, phone = #{phone}, username = #{username}, pass = #{pass}, supervisorNum = #{supervisorNum} where empNum = #{empNum}")
 	void updateEmployee(Employee employee);
 	
-	@Insert("insert into employee(empNum, firstName, lastName, middleInit, username, phone, pass, supervisorNum) values (#{empNum}, #{firstName}, #{lastName}, #{middleInit}, #{phone}, #{username}, #{pass}, #{supervisorNum})")
+	@Insert("insert into employee(empNum, firstName, lastName, middleInit, username, phone, pass, supervisorNum) values (#{empNum}, #{firstName}, #{lastName}, #{middleInit}, #{username}, #{phone}, #{pass}, #{supervisorNum})")
 	void insertEmployee(Employee employee);
 	
 	@Select("SELECT empNum, firstName, lastName, middleInit, phone, username, pass, supervisorNum FROM EMPLOYEE where empNum = #{empNum} and pass = #{pass}")
