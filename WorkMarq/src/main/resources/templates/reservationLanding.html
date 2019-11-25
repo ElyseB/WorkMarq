@@ -19,7 +19,7 @@
     <th>Reservation Start Date</th>
     <th>Reservation End Date</th>
     <th>Number of Rooms</th>
-    <th>Building Max Capacity</th>
+<!--     <th>Building Max Capacity</th>--> 
     <th></th>
     </tr>
     
@@ -32,7 +32,7 @@
         <td th:text="${reservation.reservStart}" />
         <td th:text="${reservation.reservEnd}" />
         <td th:text="${reservation.roomsNeeded}" />
-        <td th:text="${building.maxRooms}" />
+<!--         <td th:text="${building.maxRooms}" />--> 
         <td>
         <a th:href="@{'/editReservation/' + ${reservation.reservNum}}">edit</a>
         </td>
