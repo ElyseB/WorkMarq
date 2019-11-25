@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Building</title>
+    <link rel="stylesheet" type="text/css" href="css/example.css" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: rgba(255, 215, 0, 0.5);">
+
+
+<p>Please enter the building's new information.</p>
+	
+ 	<form th:action="@{/updateBuilding}" th:object="${building}" method="post">
+	<table class="prettytable">
+		<tr>
+			<td>Building Name :</td>
+			<td><input type="text" th:field="*{bName}" readonly= "readonly"/></td>
+		</tr>
+ 		<tr>
+			<td>Building Abbreviation:</td>
+			<td><input type="text" th:field="*{bAbbrev}" /></td>
+		</tr>
+		<tr>
+			<td>Building Address :</td>
+			<td><input type="text" th:field="*{bAddress}" /></td>
+		</tr>
+		<tr>
+			<td>Building Phone Number :</td>
+			<td><input type="text" th:field="*{bPhone}" /></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="submit" /></td>
+			<td><input type="reset" value="reset" /></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
