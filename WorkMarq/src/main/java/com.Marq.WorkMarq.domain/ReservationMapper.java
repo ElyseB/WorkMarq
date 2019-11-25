@@ -15,7 +15,7 @@ public interface ReservationMapper {
 	@Select("SELECT reservNum, orgName, contactName, contactPhone, occupies, reservStart, reservEnd, roomsNeeded FROM RESERVATION where reservNum = #{reservNum}")
 	Reservation getReservation(Reservation reservation);
 	
-	@Update("update reservation set reservNum = #{reservNum}, orgName = #{orgName}, contactName = #{contactName}, contactPhone = #{contactPhone}, occupies = #{occupies}, reservStart = #{reservStart}, reservEnd = #{reservEnd} where reservNum = #{reservNum}")
+	@Update("update reservation set orgName = #{orgName}, contactName = #{contactName}, contactPhone = #{contactPhone}, occupies = #{occupies}, reservStart = #{reservStart}, reservEnd = #{reservEnd} where reservNum = #{reservNum}")
 	void updateReservation(Reservation reservation);
 	
 	@Insert("insert into reservation(reservNum, orgName, contactName, contactPhone, occupies, reservStart, reservEnd, roomsNeeded) values (#{reservNum}, #{orgName}, #{contactName}, #{contactPhone}, #{occupies}, #{reservStart}, #{reservEnd}, #{roomsNeeded})")
