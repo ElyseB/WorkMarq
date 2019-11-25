@@ -21,19 +21,27 @@ import com.Marq.WorkMarq.domain.Building;
 import com.Marq.WorkMarq.service.BuildingService;
 import com.Marq.WorkMarq.domain.Reservation;
 import com.Marq.WorkMarq.service.ReservationService;
-
+import com.Marq.WorkMarq.domain.Timeoff;
+import com.Marq.WorkMarq.service.TimeoffService;
 
 @Controller
 public class SiteController {
-	
+
 	@Autowired
 	EmployeeService employeeService;
 	@Autowired
 	BuildingService buildingService;
 	@Autowired
 	ReservationService reservationService;
-	
-	//Employee Table
+	@Autowired
+	TimeoffService timeoffService;
+
+	/*
+	 * Methods related to employee and supervisor attributes
+	 * 
+	 */
+
+	// Employee Table
 	@GetMapping("/employees")
 	public String getEmployees(Model model) {
 		System.out.println("inside /employees");
@@ -42,38 +50,75 @@ public class SiteController {
 		model.addAttribute("employeeList", employeeList);
 		return "employeeLanding";
 	}
-	//Edit Employee
-	@GetMapping("/editEmployee/{empNum}")
+
+	// Edit Employee
+	@GetMapping("/editEmp/{empNum}")
 	public String editEmployee(@PathVariable int empNum, @ModelAttribute Employee employee, Model model) {
 		employee = new Employee();
 		employee.setEmpNum(empNum);
-		System.out.println("before getEmployee"+employee);
+		System.out.println("before getEmployee" + employee);
 		employee = employeeService.getEmployee(employee);
-		System.out.println("after getEmployee"+employee);
+		System.out.println("after getEmployee" + employee);
 		model.addAttribute("employee", employee);
-		return "editEmployee";		
+		return "editEmp";
 	}
-	//Log In
+
+	// Update Employee
+	@RequestMapping(value = "/updateEmp", method = RequestMethod.POST)
+	public String updateEmployee(@ModelAttribute Employee employee, Model model) {
+		employeeService.updateEmployee(employee);
+		model.addAttribute("message", "success. employee updated.");
+		getEmployees(model);
+		return "employeeLanding";
+	}
+
+	// Add Employee
+	@RequestMapping(value = "/addEmp/{empNum}", method = RequestMethod.GET)
+	public String addEmp(@ModelAttribute Employee employee, Model model) {
+		employee = new Employee();
+		model.addAttribute(employee);
+		return "addEmp";
+	}
+
+	// Processing Add Employee
+	@RequestMapping(value = "/processAddEmp", method = RequestMethod.POST)
+	public String processAddEmp(@RequestParam String empNum, String firstName, String lastNameame, String middleInit,
+			String phone, String username, String pass, String supervisorNum, @ModelAttribute Employee employee,
+			Model model) {
+		employeeService.insertEmployee(employee);
+		getEmployees(model);
+		return "employeeLanding";
+	}
+	// TODO Remove Employee
+
+	// Log In
 	@RequestMapping(value = "/logIn", method = RequestMethod.GET)
 	public String login(@ModelAttribute Employee employee, Model model) {
 		return "logIn";
 	}
-	//Processing Log In Page
+
+	// Processing Log In Page
 	@RequestMapping(value = "/processLogIn", method = RequestMethod.POST)
-	 public String processLogin(@RequestParam String empNum, String firstName, String supervisorNum, @ModelAttribute Employee employee, Model model) {
-    	employee = employeeService.logInEmployee(employee);
-    	System.out.println(employee);
-    	model.addAttribute("message","Hello " + employee.getFirstName() + ", what would you like to do?");
-    	model.addAttribute("empNum", employee.getEmpNum());
-    	model.addAttribute("supervisorNum", employee.getSupervisorNum());
-    	model.addAttribute(employee);
-    	if(employee.getSupervisorNum() == 0) {
-    		return "welcomeS";
-    	}
-    	else
-    		return "welcome";
-    }
-	//Building Table
+	public String processLogin(@RequestParam String empNum, String firstName, String supervisorNum,
+			@ModelAttribute Employee employee, Model model) {
+		employee = employeeService.logInEmployee(employee);
+		System.out.println(employee);
+		model.addAttribute("message", "Hello " + employee.getFirstName() + ", what would you like to do?");
+		model.addAttribute("empNum", employee.getEmpNum());
+		model.addAttribute("supervisorNum", employee.getSupervisorNum());
+		model.addAttribute(employee);
+		if (employee.getSupervisorNum() == 0) {
+			return "welcomeS";
+		} else
+			return "welcome";
+	}
+
+	/*
+	 * Methods related to buildings and their attributes
+	 * 
+	 */
+
+	// Building Table
 	@GetMapping("/buildings")
 	public String getBuildings(Model model) {
 		System.out.println("inside /buildings");
@@ -82,15 +127,160 @@ public class SiteController {
 		model.addAttribute("buildingList", buildingList);
 		return "buildingLanding";
 	}
-	//Reservation Table
-		@GetMapping("/reservations")
-		public String getReservations(Model model) {
-			System.out.println("inside /reservations");
-			List<Reservation> reservationList = new ArrayList<Reservation>();
-			reservationList = reservationService.getReservationList();
-			model.addAttribute("reservationList", reservationList);
-			return "reservationLanding";
-		}
-	
 
+	// Edit Building
+	@GetMapping("/editBuilding/{bName}")
+	public String editBuilding(@PathVariable String bName, @ModelAttribute Building building, Model model) {
+		building = new Building();
+		building.setbName(bName);
+		System.out.println("before getBuilding" + building);
+		building = buildingService.getBuilding(building);
+		System.out.println("after getBuilding" + building);
+		model.addAttribute("building", building);
+		return "editBuilding";
+	}
+
+	// Update Building
+	@RequestMapping(value = "/updateBuilding", method = RequestMethod.POST)
+	public String updateBuilding(@ModelAttribute Building building, Model model) {
+		buildingService.updateBuilding(building);
+		model.addAttribute("message", "success. building updated.");
+		getBuildings(model);
+		return "buildingLanding";
+	}
+
+	// Add Building
+	@RequestMapping(value = "/addBuilding/{empNum}", method = RequestMethod.GET)
+	public String newBuilding(@ModelAttribute Building building, Model model) {
+		building = new Building();
+		model.addAttribute(building);
+		return "addBuilding";
+	}
+
+	// Processing Add Building
+	@RequestMapping(value = "/processAddBuilding", method = RequestMethod.POST)
+	public String processNewBuilding(@RequestParam String bName, String bAbbrev, String bAddress, String bPhone,
+			@ModelAttribute Building building, Model model) {
+		buildingService.insertBuilding(building);
+		getBuildings(model);
+		return "buildingLanding";
+	}
+	// TODO Remove Building
+
+	/*
+	 * Methods related to reservations
+	 * 
+	 */
+
+	// Reservation Table
+	@GetMapping("/reservations")
+	public String getReservations(Model model) {
+		System.out.println("inside /reservations");
+		List<Reservation> reservationList = new ArrayList<Reservation>();
+		reservationList = reservationService.getReservationList();
+		model.addAttribute("reservationList", reservationList);
+		return "reservationLanding";
+	}
+
+	// Edit Reservation
+	@GetMapping("/editReservation/{reservNum}")
+	public String editReservation(@PathVariable int reservNum, @ModelAttribute Reservation reservation, Model model) {
+		reservation = new Reservation();
+		reservation.setReservNum(reservNum);
+		System.out.println("before getReservation" + reservation);
+		reservation = reservationService.getReservation(reservation);
+		System.out.println("after getReservation" + reservation);
+		model.addAttribute("reservation", reservation);
+		return "editReservation";
+	}
+
+	// Update Reservation
+	@RequestMapping(value = "/updateReservation", method = RequestMethod.POST)
+	public String updateReservation(@ModelAttribute Reservation reservation, Model model) {
+		reservationService.updateReservation(reservation);
+		model.addAttribute("message", "success. reservation updated.");
+		getReservations(model);
+		return "reservationLanding";
+	}
+
+	// Add Reservation
+	@RequestMapping(value = "/addReservation/{empNum}", method = RequestMethod.GET)
+	public String addRes(@ModelAttribute Reservation reservation, Model model) {
+		reservation = new Reservation();
+		model.addAttribute(reservation);
+		return "addReservation";
+	}
+
+	// Processing Add Reservation
+	@RequestMapping(value = "/processAddRes", method = RequestMethod.POST)
+	public String processAddRes(@RequestParam String reservNum, String orgName, String contactName, String contactPhone,
+			String occupies, String reservStart, String reservEnd, String roomsNeeded,
+			@ModelAttribute Reservation reservation, Model model) {
+		reservationService.insertReservation(reservation);
+		getReservations(model);
+		return "reservationLanding";
+	}
+	// TODO Remove Reservation
+
+	/*
+	 * Methods related to time off
+	 * 
+	 */
+	// Timeoff Table
+	@GetMapping("/timeoffTable")
+	public String getTimeoffTable(Model model) {
+		System.out.println("inside /timeoffTable");
+		List<Timeoff> timeoffList = new ArrayList<Timeoff>();
+		timeoffList = timeoffService.getTimeoffList();
+		model.addAttribute("timeoffList", timeoffList);
+		return "timeoffLanding";
+	}
+	// Individual Time off
+	@GetMapping("/myTimeoff/{empNum}")
+	public String getMyTimeOff(@PathVariable int empNum, @ModelAttribute Timeoff timeoff, Model model) {
+		List<Timeoff> myTimeoffList = new ArrayList<Timeoff>();
+		myTimeoffList = timeoffService.getTimeoffList();
+		model.addAttribute("myTimeoffList", myTimeoffList);
+		model.addAttribute("empNum", empNum);
+		return "myTimeoffLanding";
+	}
+
+	// Edit Timeoff
+	@GetMapping("/editTimeoff/{empNum}")
+	public String editTimeoff(@PathVariable int empNum, @ModelAttribute Timeoff timeoff, Model model) {
+		timeoff = new Timeoff();
+		timeoff.setEmpNum(empNum);
+		System.out.println("before getTimeoff" + timeoff);
+		timeoff = timeoffService.getTimeoff(timeoff);
+		System.out.println("after getTimeoff" + timeoff);
+		model.addAttribute("timeoff", timeoff);
+		return "editTimeoff";
+	}
+
+	// Update Timeoff
+	@RequestMapping(value = "/updateTimeoff", method = RequestMethod.POST)
+	public String updateTimeoff(@ModelAttribute Timeoff timeoff, Model model) {
+		timeoffService.updateTimeoff(timeoff);
+		model.addAttribute("message", "success. timeoff updated.");
+		getTimeoffTable(model);
+		return "timeoffLanding";
+	}
+
+	// Add Timeoff
+	@RequestMapping(value = "/addTimeoff/{empNum}", method = RequestMethod.GET)
+	public String newTimeoff(@ModelAttribute Timeoff timeoff, Model model) {
+		timeoff = new Timeoff();
+		model.addAttribute(timeoff);
+		return "addTimeoff";
+	}
+
+	// Processing Add Timeoff
+	@RequestMapping(value = "/processAddTimeoff", method = RequestMethod.POST)
+	public String processAddTimeoff(@RequestParam String empNum, String startDate, String endDate, String totalHours,
+			String typeHoursUsed, @ModelAttribute Timeoff timeoff, Model model) {
+		timeoffService.insertTimeoff(timeoff);
+		getTimeoffTable(model);
+		return "timeoffLanding";
+	}
+	// TODO Remove Timeoff
 }
