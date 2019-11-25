@@ -3,7 +3,7 @@ package com.Marq.WorkMarq.domain;
 import java.sql.Date;
 
 public class Reservation {
-	private String reservNum;
+	private int reservNum;
 	private String orgName;
 	private String contactName;
 	private String contactPhone;
@@ -23,7 +23,7 @@ public class Reservation {
      * @param roomsNeeded
 	 */
 	
-	public Reservation(String reservNum, String orgName, String contactName, String contactPhone, String occupies,
+	public Reservation(int reservNum, String orgName, String contactName, String contactPhone, String occupies,
 			Date reservStart, Date reservEnd, int roomsNeeded) {
 		super();
 		this.reservNum = reservNum;
@@ -38,10 +38,10 @@ public class Reservation {
 	public Reservation() {
 		// TODO Auto-generated constructor stub
 	}
-	public String getReservNum() {
+	public int getReservNum() {
 		return reservNum;
 	}
-	public void setReservNum(String reservNum) {
+	public void setReservNum(int reservNum) {
 		this.reservNum = reservNum;
 	}
 	public String getOrgName() {
