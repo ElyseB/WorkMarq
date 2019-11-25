@@ -8,12 +8,19 @@
 	<h1 style="color: rgb(25, 25, 112)">Welcome to WorkMarq</h1>
 	<p th:text="${message}"/>
 	<a th:href="@{'/fullSchedule/' + ${employee.empNum}}">Full Schedule</a>
-	<a th:href="@{'/newEmp/' + ${employee.empNum}}">Add Employee</a>
-	<a th:href="@{'/editEmp/' + ${employee.empNum}}">Edit Employee</a>
-	<a th:href="@{'/removeEmp/' + ${employee.empNum}}">Remove Employee</a>
-	<a th:href="@{'/removeEmp/' + ${employee.empNum}}">Add Reservation</a>
-	<a th:href="@{'/removeEmp/' + ${employee.empNum}}">Edit Reservation</a>
-	<a th:href="@{'/removeEmp/' + ${employee.empNum}}">Remove Reservation</a>
-
+	<a th:href="@{'/buildings'}">Building Openings</a>
+ 	<a th:href="@{'/timeoffTable'}">All Time Off Requests</a> 
+	<p>Employee Information</p>
+	<a th:href="@{'/addEmp/' + ${employee.empNum}}">Add Employee</a>
+	<a th:href="@{'/employees'}">View and Edit Employees</a>
+	<p>Schedule Information</p>
+	<a th:href="@{'/addTimeoff/' + ${employee.empNum}}">Add New Schedule Change</a>
+	<a th:href="@{'/timeoffTable'}">View and Edit Schedule</a>
+	<p>Reservation Information</p>
+	<a th:href="@{'/addReservation/' + ${employee.empNum}}">Add Reservation</a>
+	<a th:href="@{'/reservations'}">View and Edit Reservations</a>
+	<p>Building Information</p>
+	<a th:href="@{'/addBuilding/' + ${employee.empNum}}">Add Building</a>
+	<a th:href="@{'/buildings'}">View and Edit Buildings</a>
 </body>
 </html>
