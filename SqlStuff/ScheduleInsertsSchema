@@ -1,0 +1,125 @@
+DROP TABLE YEARROTATION CASCADE CONSTRAINTS;
+DROP TABLE SSOLINES CASCADE CONSTRAINTS;
+DROP TABLE OFFDAYS CASCADE CONSTRAINTS;
+
+CREATE TABLE YEARROTATION(
+    weekNum INT PRIMARY KEY,
+    color VARCHAR (25)
+);
+
+CREATE TABLE SSOLINES(
+    lineLetter VARCHAR(2) PRIMARY KEY,
+    empNum INT,
+    status INT,
+    redWeek VARCHAR(2),
+    orangeWeek VARCHAR(2),
+    yellowWeek VARCHAR(2),
+    greenWeek VARCHAR(2),
+    blueWeek VARCHAR(2),
+    purpleWeek VARCHAR(2),
+    blackWeek VARCHAR(2)
+);
+
+CREATE TABLE OFFDAYS(
+    weekLetter VARCHAR(2) PRIMARY KEY,
+    day1 INT,
+    day2 INT,
+    day3 INT,
+    day4 INT,
+    day5 INT,
+    day6 INT,
+    day7 INT
+);
+
+
+INSERT ALL
+    INTO YEARROTATION (weekNum, color) VALUES (1, 'purple')
+    INTO YEARROTATION (weekNum, color) VALUES (2, 'black')
+    INTO YEARROTATION (weekNum, color) VALUES (3, 'red')
+    INTO YEARROTATION (weekNum, color) VALUES (4, 'orange')
+    INTO YEARROTATION (weekNum, color) VALUES (5, 'yellow')
+    INTO YEARROTATION (weekNum, color) VALUES (6, 'green')
+    INTO YEARROTATION (weekNum, color) VALUES (7, 'blue')
+    INTO YEARROTATION (weekNum, color) VALUES (8, 'purple')
+    INTO YEARROTATION (weekNum, color) VALUES (9, 'black')
+    INTO YEARROTATION (weekNum, color) VALUES (10, 'red')
+    INTO YEARROTATION (weekNum, color) VALUES (11, 'orange')
+    INTO YEARROTATION (weekNum, color) VALUES (12, 'yellow')
+    INTO YEARROTATION (weekNum, color) VALUES (13, 'green')
+    INTO YEARROTATION (weekNum, color) VALUES (14, 'blue')
+    INTO YEARROTATION (weekNum, color) VALUES (15, 'purple')
+    INTO YEARROTATION (weekNum, color) VALUES (16, 'black')
+    INTO YEARROTATION (weekNum, color) VALUES (17, 'red')
+    INTO YEARROTATION (weekNum, color) VALUES (18, 'orange')
+    INTO YEARROTATION (weekNum, color) VALUES (19, 'yellow')
+    INTO YEARROTATION (weekNum, color) VALUES (20, 'red')
+    INTO YEARROTATION (weekNum, color) VALUES (21, 'orange')
+    INTO YEARROTATION (weekNum, color) VALUES (22, 'yellow')
+    INTO YEARROTATION (weekNum, color) VALUES (23, 'green')
+    INTO YEARROTATION (weekNum, color) VALUES (24, 'blue')
+    INTO YEARROTATION (weekNum, color) VALUES (25, 'purple')
+    INTO YEARROTATION (weekNum, color) VALUES (26, 'black')
+    INTO YEARROTATION (weekNum, color) VALUES (27, 'red')
+    INTO YEARROTATION (weekNum, color) VALUES (28, 'orange')
+    INTO YEARROTATION (weekNum, color) VALUES (29, 'yellow')
+    INTO YEARROTATION (weekNum, color) VALUES (30, 'green')
+    INTO YEARROTATION (weekNum, color) VALUES (31, 'blue')
+    INTO YEARROTATION (weekNum, color) VALUES (32, 'purple')
+    INTO YEARROTATION (weekNum, color) VALUES (33, 'black')
+    INTO YEARROTATION (weekNum, color) VALUES (34, 'red')
+    INTO YEARROTATION (weekNum, color) VALUES (35, 'orange')
+    INTO YEARROTATION (weekNum, color) VALUES (36, 'yellow')
+    INTO YEARROTATION (weekNum, color) VALUES (37, 'green')
+    INTO YEARROTATION (weekNum, color) VALUES (38, 'blue')
+    INTO YEARROTATION (weekNum, color) VALUES (39, 'purple')
+    INTO YEARROTATION (weekNum, color) VALUES (40, 'black')
+    INTO YEARROTATION (weekNum, color) VALUES (41, 'red')
+    INTO YEARROTATION (weekNum, color) VALUES (42, 'orange')
+    INTO YEARROTATION (weekNum, color) VALUES (43, 'yellow')
+    INTO YEARROTATION (weekNum, color) VALUES (44, 'green')
+    INTO YEARROTATION (weekNum, color) VALUES (45, 'blue')
+    INTO YEARROTATION (weekNum, color) VALUES (46, 'purple')
+    INTO YEARROTATION (weekNum, color) VALUES (47, 'black')
+    INTO YEARROTATION (weekNum, color) VALUES (48, 'red')
+    INTO YEARROTATION (weekNum, color) VALUES (49, 'orange')
+    INTO YEARROTATION (weekNum, color) VALUES (50, 'yellow')
+    INTO YEARROTATION (weekNum, color) VALUES (51, 'green')
+    INTO YEARROTATION (weekNum, color) VALUES (52, 'blue')
+SELECT * FROM dual;
+
+INSERT ALL
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (A, 0, 12, 'a', 'b', 'c', 'd', 'e', 'f', 'g')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (B, 0, 12, 'a', 'b', 'c', 'd', 'e', 'f', 'g')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (C, 0, 12, 'a', 'b', 'c', 'd', 'e', 'f', 'g')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (D, 0, 12, 'a', 'b', 'c', 'd', 'e', 'f', 'g')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (E, 0, 12, 'g', 'a', 'b', 'c', 'd', 'e', 'f')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (F, 0, 12, 'g', 'a', 'b', 'c', 'd', 'e', 'f')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (G, 0, 12, 'g', 'a', 'b', 'c', 'd', 'e', 'f')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (H, 0, 12, 'g', 'a', 'b', 'c', 'd', 'e', 'f')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (I, 0, 12, 'f', 'g', 'a', 'b', 'c', 'd', 'e')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (J, 0, 12, 'f', 'g', 'a', 'b', 'c', 'd', 'e')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (K, 0, 12, 'f', 'g', 'a', 'b', 'c', 'd', 'e')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (L, 0, 12, 'f', 'g', 'a', 'b', 'c', 'd', 'e')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (M, 0, 12, 'e', 'f', 'g', 'a', 'b', 'c', 'd')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (N, 0, 12, 'e', 'f', 'g', 'a', 'b', 'c', 'd')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (O, 0, 12, 'e', 'f', 'g', 'a', 'b', 'c', 'd')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (P, 0, 12, 'd', 'e', 'f', 'g', 'a', 'b', 'c')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (Q, 0, 12, 'd', 'e', 'f', 'g', 'a', 'b', 'c')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (R, 0, 12, 'd', 'e', 'f', 'g', 'a', 'b', 'c')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (S, 0, 12, 'c', 'd', 'e', 'f', 'g', 'a', 'b')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (T, 0, 12, 'c', 'd', 'e', 'f', 'g', 'a', 'b')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (U, 0, 12, 'c', 'd', 'e', 'f', 'g', 'a', 'b')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (V, 0, 12, 'b', 'c', 'd', 'e', 'f', 'g', 'a')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (W, 0, 12, 'b', 'c', 'd', 'e', 'f', 'g', 'a')
+    INTO SSOLINES (lineLetter, empNum, status, redWeek, orangeWeek, yellowWeek, greenWeek, blueWeek, purpleWeek, blackWeek) VALUES (X, 0, 12, 'b', 'c', 'd', 'e', 'f', 'g', 'a')
+SELECT * FROM dual;
+
+INSERT ALL
+    INTO OFFDAYS (weekLetter, day1, day2, day3, day4, day5, day6, day7) VALUES ('a', 0, 0, 1, 1, 1, 1, 1)
+    INTO OFFDAYS (weekLetter, day1, day2, day3, day4, day5, day6, day7) VALUES ('b', 1, 0, 0, 1, 1, 1, 1)
+    INTO OFFDAYS (weekLetter, day1, day2, day3, day4, day5, day6, day7) VALUES ('c', 1, 1, 0, 0, 1, 1, 1)
+    INTO OFFDAYS (weekLetter, day1, day2, day3, day4, day5, day6, day7) VALUES ('d', 1, 1, 1, 0, 0, 1, 1)
+    INTO OFFDAYS (weekLetter, day1, day2, day3, day4, day5, day6, day7) VALUES ('e', 1, 1, 1, 1, 0, 0, 1)
+    INTO OFFDAYS (weekLetter, day1, day2, day3, day4, day5, day6, day7) VALUES ('f', 1, 1, 1, 1, 1, 0, 0)
+    INTO OFFDAYS (weekLetter, day1, day2, day3, day4, day5, day6, day7) VALUES ('g', 0, 1, 1, 1, 1, 1, 0)
+SELECT * FROM dual;
