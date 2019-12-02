@@ -12,32 +12,25 @@
 <p>Please enter the information for the time off request.</p>
 	
  	<form th:action="@{/processAddTimeoff}" th:object="${timeoff}" method="post">
-	<table class="prettytable">
-		<tr>
-			<td>Employee Number :</td>
-			<td><input type="text" th:field="*{empNum}" /></td>
-		</tr>
- 		<tr>
-			<td>Start Date (YYYY-MM-DD) :</td>
-			<td><input type="text" th:field="*{startDate}" /></td>
-		</tr>
-		<tr>
-			<td>End Date (YYYY-MM-DD) :</td>
-			<td><input type="text" th:field="*{endDate}" /></td>
-		</tr>
-		<tr>
-			<td>total Hours :</td>
-			<td><input type="text" th:field="*{totalHours}" /></td>
-		</tr>
-		<tr>
-			<td>Type of Hours Used (AL,FLOATING HOLIDAY,PLANNED MEDICAL,BANKED HOLIDAY):</td>
-			<td><input type="text" th:field="*{typeHoursUsed}" /></td>
-		</tr>
-		<tr>
-			<td><input type="submit" value="submit" /></td>
-			<td><input type="reset" value="reset" /></td>
-		</tr>
-	</table>
+		Employee Number :
+			<input type="text" th:field="*{empNum}" /><br/>
+		Start Date (YYYY-MM-DD) :
+			<input type="text" th:field="*{startDate}" /><br/>
+		End Date (YYYY-MM-DD) :
+			<input type="text" th:field="*{endDate}" /><br/>
+		Total Hours :
+			<input type="text" th:field="*{totalHours}" /><br/>
+		Type of Hours Used :
+			<select th:field="*{typeHoursUsed}">
+			<option value=""></option>
+			<option th:value="AL" th:text="AL"/>
+			<option th:value="'FLOATING HOLIDAY'" th:text="'FLOATING HOLIDAY'"/>
+			<option th:value="'PLANNED MEDICAL'" th:text="'PLANNED MEDICAL'"/>
+			<option th:value="'BANKED HOLIDAY'" th:text="'BANKED HOLIDAY'"/>
+			</select><br/>
+		<input type="submit" value="submit" />
+		<input type="reset" value="reset" />
+
 	</form>
 </body>
 </html>
