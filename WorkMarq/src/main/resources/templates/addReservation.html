@@ -12,13 +12,9 @@
 <p>Please enter the information for the new reservation.</p>
 	
  	<form th:action="@{/processAddRes}" th:object="${reservation}" method="post">
-	<table class="prettytable">
-		<tr>
-			<td>Reservation Number :</td>
-			<td><input type="text" th:field="*{reservNum}" /></td>
-		</tr>
+ 	<table class="prettytable">
  		<tr>
-			<td>Organization Name :</td>
+			<td>Organization Name : </td>
 			<td><input type="text" th:field="*{orgName}" /></td>
 		</tr>
 		<tr>
@@ -26,30 +22,33 @@
 			<td><input type="text" th:field="*{contactName}" /></td>
 		</tr>
 		<tr>
-			<td>Contact Phone Number :</td>
+			<td>Contact Phone Number : </td>
 			<td><input type="text" th:field="*{contactPhone}" /></td>
 		</tr>
-		<tr>
-			<td>Building Occupied :</td>
-			<td><input type="text" th:field="*{occupies}" /></td>
+		<tr>	
+			<td>Building Occupied :</td> 
+			<td><select th:field="*{occupies}" >
+				<option value="">Building Occupied</option>
+				<option th:each ="building: ${buildingList}" th:value = "${building.bAbbrev}" th:text= "${building.bName}"/>
+				</select></td>
 		</tr>
-		<tr>
+		<tr>		
 			<td>Start Date (YYYY-MM-DD) :</td>
 			<td><input type="text" th:field="*{reservStart}" /></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td>End Date (YYYY-MM-DD) :</td>
 			<td><input type="text" th:field="*{reservEnd}" /></td>
 		</tr>
 		<tr>
 			<td>Number of Rooms Needed :</td>
 			<td><input type="text" th:field="*{roomsNeeded}" /></td>
-		</tr>
+		</tr>	
 		<tr>
-			<td><input type="submit" value="submit" /></td>
-			<td><input type="reset" value="reset" /></td>
+			<td><input type="submit" value="submit" />
+			<input type="reset" value="reset" /></td>
 		</tr>
-	</table>
+	</td>
 	</form>
 </body>
 </html>
